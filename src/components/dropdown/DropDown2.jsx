@@ -1,14 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './dropdown2.css'
 const DropDown2 = (props) => {
+
     const [isOpen, setIsopen] = useState(false);
 
     const handleClick = () => {
         setIsopen(!isOpen);
     };
 
+    const ref = useRef();
+
+    //if the menu is open and not clicking within in the menu => close 
+    useEffect(() => {
+        const clickOutside = e => {
+            if (isOpen && ref.current && !ref.current.contains(e.target))
+                setIsopen(false)
+
+        }
+        document.addEventListener('mousedown', clickOutside)
+
+        return () => {
+            document.removeEventListener("mousedown", clickOutside)
+        }
+    }, [isOpen])
+
     return (
-        <div className="dropdown">
+        <div className="dropdown" ref={ref}>
             <button className="dropdown-toggle" onClick={handleClick}>
                 {
                     props.icon ? <i className={props.icon}></i> : ''
@@ -16,9 +33,7 @@ const DropDown2 = (props) => {
                 {
                     props.badge ? <span className="dropdown-toggle-badge">{props.badge}</span> : ''
                 }
-                {
-                    props.customToggle ? props.customToggle() : ''
-                }
+
             </button>
             <div className="dropdown-content">
                 {

@@ -1,0 +1,57 @@
+.container-cards { 
+    display:flex;
+}
+
+.container-card { 
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50%;
+    margin-top:1rem;
+    
+    
+}
+.status-card { 
+    display:flex;
+    padding:30px;
+    align-items:center;
+    background:var(--main-bg);
+    box-shadow: var(--box-shadow);
+    border-radius:var(--border-radius);
+    margin:0.5rem;
+    width:45%;
+}
+.status-card:hover { 
+    background:var(--second-color);
+    color:#fff;
+    transition: .5s ease-in-out;
+}
+.status-card i { 
+    width:20%;
+    font-size:2rem;
+    text-align: center;
+}
+.detail { 
+    margin-left:1.5rem;
+}
+.detail h4 { 
+    font-size:1.5rem;
+}
+
+.detail span { 
+    font-size:1rem;
+}
+.full-height { 
+    height:100%;
+    
+}
+
+.full-height.card { 
+    height:calc(100% - 30px);
+    margin-top: 2rem;
+}
+.container-card-right { 
+    width: 100%;
+    margin-bottom:1rem;
+    align-items: center;
+}
+

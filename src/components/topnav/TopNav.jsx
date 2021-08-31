@@ -1,14 +1,25 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './topnav.css'
 import notifcations from '../../assets/JsonData/notification.json'
 import DropDown2 from '../dropdown/DropDown2'
-
+import user from '../../assets/JsonData/user_menus.json'
 const renderNotify = (item, index) => (
     <div className="notify-item" key={index}>
         <i className={item.icon}></i>
         <span>{item.content}</span>
     </div>
 )
+
+const renderUser = (item, index) => (
+    <Link to="/" >
+        <div className="notify-item" key={index}>
+            <i className={item.icon}></i>
+            <span>{item.content}</span>
+        </div>
+    </Link>
+)
+
 
 
 const TopNav = () => {
@@ -23,7 +34,8 @@ const TopNav = () => {
                 <div className="topnav-right-item">
                     <DropDown2
                         icon="bx bx-user"
-
+                        contentData={user}
+                        renderItems={renderUser}
                     />
                 </div>
                 <div className="topnav-right-item">
@@ -31,7 +43,7 @@ const TopNav = () => {
                         icon="bx bx-bell"
                         badge='12'
                         contentData={notifcations}
-                        renderItems={(item, index) => renderNotify(item, index)}
+                        renderItems={renderNotify}
                     />
                 </div>
 
