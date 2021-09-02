@@ -1,3 +1,7 @@
+.container-dashboard { 
+    display:flex;
+    flex-wrap:wrap;
+}
 .container-cards { 
     display:flex;
 }
@@ -17,8 +21,19 @@
     background:var(--main-bg);
     box-shadow: var(--box-shadow);
     border-radius:var(--border-radius);
-    margin:0.5rem;
     width:45%;
+}
+.status-card:nth-child(1){
+    margin-bottom: 0.5rem;
+}
+.status-card:nth-child(2){
+    margin-left:1rem;
+    margin-bottom: 0.5rem;
+
+}
+.status-card:nth-child(4){
+    margin-left:1rem;
+
 }
 .status-card:hover { 
     background:var(--second-color);
